@@ -17,6 +17,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "allowSyntheticDefaultImports":true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "module": "es2020",
     "lib": [
       "es2018",

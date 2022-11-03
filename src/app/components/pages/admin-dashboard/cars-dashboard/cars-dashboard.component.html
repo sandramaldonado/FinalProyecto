@@ -1,37 +1,55 @@
+<div class="card card-user">
+  <form id="formContent">
+    <h2>La discapacidad es a nivel</h2>
+        <div class="button-container">
+            <button *ngFor="let menuItem of menuItems" href="#" class="btn" (click)="funciones(menuItem.value)">
+              {{menuItem.title}}
+            </button>
 
-<div class="container">
-   
-    <table class="table ">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Araba İsmi</th>
-          <th>Marka</th>
-          <th>Renk</th>
-          <th>Model</th>
-          <th>Günlük Fiyat</th>
-          <th>Açıklama</th>
-          <th>
-            <button routerLink="add" type="button" class="btn btn-outline-dark">+ Ekle</button>
-          </th>
-       
+        </div>
+  </form>
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let car of cars">
-          <td>{{car.carId}}</td>
-          <td>{{car.carName}}</td>
-          <td>{{car.brandName}}</td>
-          <td>{{car.colorName}}</td>
-          <td>{{car.modelYear}}</td>
-          <td>{{car.dailyPrice}}</td>
-          <td>{{car.description}}</td>
-          <td>
-            <button routerLink="edit/{{car.carId}}" type="button" class="btn btn-outline-info mx-2">Güncelle</button>
-          </td>
-          
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <form [hidden]="sensoriales" id="formContent">
+    <h2>La discapacidad se relaciona con:</h2>
+        <div class="button-container">
+            <button *ngFor="let sen of sens" href="#" class="btn btn-neutral" (click)="vista(sen.value)">
+              {{sen.title}}
+            </button>
+
+        </div>
+  </form>
+  <form [hidden]="vis" id="formContent">
+    <h2>Que region de la vista?:</h2>
+        <div class="button-container">
+            <button *ngFor="let vista of vistas" href="#" class="btn btn-neutral" (click)="agudeza(vista.value)">
+              {{vista.title}}
+            </button>
+
+        </div>
+  </form>
+
+  <form [hidden]="agu" id="formContent">
+    <h2>La Agudeza Visual falla a nivel...?:</h2>
+        <div class="button-container">
+            <button *ngFor="let agu of agudezas" href="#" class="btn btn-neutral" (click)="bino(agu.value)">
+              {{agu.title}}
+            </button>
+
+        </div>
+  </form>
+
+  <form [hidden]="agu" id="formContent">
+    <h2>Termino la calificacion?:</h2>
+        <div class="button-container">
+            <button href="#" class="btn btn-neutral" (click)="confirmation()">
+              Si, generar carnet?
+            </button>
+
+            <button href="#" class="btn btn-neutral" (click)="confirmation()">
+              No, continuar calificacion.
+            </button>
+        </div>
+  </form>
+  
+</div>
+

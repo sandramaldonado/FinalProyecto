@@ -46,7 +46,6 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminDashboardComponent,
-    canActivate:[LoginGuard] ,
     children: [
       {
         path: 'cars',

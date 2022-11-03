@@ -36,8 +36,16 @@ export class AuthService {
  
   ) { }
 
-  login(loginModel:LoginModel):Observable<SingleResponseModel<TokenModel>>{
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
+  login(loginModel:LoginModel):boolean{
+    // return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
+
+    if(loginModel.email = "sandra@gmail.com" ){
+
+      return true
+    }
+    else {
+      return false
+    }
   }
 
   register(registerModel:RegisterModel):Observable<SingleResponseModel<TokenModel>>{

@@ -42,6 +42,31 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HomeComponent } from './components/home/home/home.component';
 import { UserComponent } from './components/auth/user-profil/user-profil.component';
 import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.component';
+import {ReservarDialogComponent} from './components/pages/reservar-dialog/reservar-dialog.component'
+//material
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+//firebase
+
+/* import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database'; */
+import { environment } from 'src/environments/environment';
+import { GenerarCarnetComponent } from './components/pages/admin-dashboard/generar-carnet/generar-carnet.component';
+//material
+
+import {MatListModule} from '@angular/material/list';
+
 
 
 
@@ -81,6 +106,8 @@ export function tokenGetter() {
     HomeComponent,
     UserComponent,
     UsereditComponent,
+    ReservarDialogComponent,
+    GenerarCarnetComponent,
    
    
     
@@ -106,6 +133,23 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
       }
     }),
+    //material
+    MatGridListModule,
+    MatTableModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatListModule
+    //firebase
+/*     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
+ */
 
   ],
   providers: [

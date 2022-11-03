@@ -1,0 +1,42 @@
+.container{
+
+  flex-direction: column;
+  justify-content: space-between;
+  width: 4yi 0%;
+  height: 100%;
+  border-radius: 5%;
+  border-color: black;
+}
+
+.mat-grid-tile {
+  border: solid 1px #000;
+
+}
+
+.example-container {
+  height: 400px;
+  width: 950px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+table {
+  width: 1000px;
+}
+
+td.mat-column-star {
+  width: 50px;
+  padding-right: 8px;
+}
+
+th.mat-column-position, td.mat-column-position {
+  padding-left: 8px;
+}
+
+.mat-table-sticky-border-elem-right {
+  border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
+}

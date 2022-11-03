@@ -1,8 +1,45 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/car';
-import { CarDetail } from 'src/app/models/carDetail';
-import { DashboardCars } from 'src/app/models/dashboard-cars';
-import { CarService } from 'src/app/services/car.service';
+import { Output, EventEmitter } from '@angular/core';
+declare interface RouteInfo {
+
+  title: string;
+  value: string;
+
+
+}
+export const VIS:RouteInfo[] =[
+  {title:'Agudeza Visual', value: 'b210'},
+  {title: 'Funciones de E. Adyacentes al ojo', value:'215'},
+  {title: 'Sensaciones A. con el ojo', value:'b220'}
+]
+
+export const AGU: RouteInfo[] =[
+  {title: 'Binocular Larga Distancia', value: 'b21000'},
+  {title: 'Monocular Larga Distancia', value: 'b21001'},
+  {title: 'Binocular Corta Distancia', value: 'b21003'},
+  {title:'Monocular Corta Distancia', value: 'b21004'}
+]
+
+export const SEN:RouteInfo[] = [
+
+  {  title: 'Vista', value:'210'},
+  { title: 'Audicion', value:'b230 '},
+  {  title: 'Otros',value:'b310'},
+  { title: 'Dolor', value:'b410'},
+
+
+];
+export const ROUTES: RouteInfo[] = [
+
+  {  title: 'Funciones Mentales', value:'b110'},
+  { title: 'Funciones Sensoriales', value:'b200'},
+  {  title: 'Funciones del habla',value:'b310'},
+  { title: 'Funciones de sistemas cardiovascular,hematologico,inmunologico y respiratorio', value:'b410'},
+  { title: 'Funciones del sistema digestivo',value:'b510'},
+
+
+];
 
 @Component({
   selector: 'app-cars-dashboard',
@@ -10,22 +47,67 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./cars-dashboard.component.css']
 })
 export class CarsDashboardComponent implements OnInit {
+  menuItems: any[];
+  sens: any[];
+  vistas: any[];
+  agudezas: any[];
+  sensoriales = true;
+  vis = true;
+  agu = true;
+  public confirm_hidden:boolean;
 
-  cars:DashboardCars[]=[];
-  dataLoaded=false;
-  constructor(
-    private carService:CarService,
-  ) { }
+  @Output() b = new EventEmitter<string>();
+  constructor() { }
 
-  ngOnInit(): void {
-    this.getCars()
+  ngOnInit(){
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.sens = SEN.filter(sen => sen);
+    this.vistas = VIS.filter(vis => vis);
+    this.agudezas = AGU.filter(agu => agu);
   }
 
-  getCars(){
-    this.carService.getAllCarDetail().subscribe(response => {
-      this.cars=response.data,
-      this.dataLoaded=true
-
-    })
+  funciones(value:any){
+    console.log(value);
+    if(value == "b200"){
+      if(this.sensoriales)
+        {
+            this.sensoriales = false;
+        }else{
+            this.sensoriales = true;
+        }
+    }
   }
+
+  vista(value:any){
+    console.log(value);
+    if(value == '210'){
+      this.vis = false;
+    }else{
+      this.vis=true;
+    }
+  }
+
+  agudeza(value:any){
+    console.log(value);
+    if(value == 'b210'){
+      this.agu = false;
+    }else{
+      this.agu = true;
+    }
+  }
+  bino(value:any){
+    console.log(value);
+    this.b.emit(value);
+
+  }
+  confirmation(){
+    if(!confirm)
+    {
+      this.confirm_hidden = false;
+    }
+    else{
+      this.confirm_hidden = true;
+    }
+  }
+
 }
